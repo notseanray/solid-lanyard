@@ -15,18 +15,16 @@ import { createStore } from "solid-js/store";
 const DISCORD_ID = "566444484850745351";
 
 const Discord = () => {
-    const [user, setUser] = createStore({});
-    // Your discord ID, store setter, keep alive interval for websocket
-    useLanyardWS(DISCORD_ID, setUser, 1000);
-    return(<>
-        <Show when={user.loading}>
-            loading!
-        </Show>
-        <Show when={!user.loading}>
-            {user()?.discord_user?.username}
-        </Show>
-    </>);
-}
+  const [user, setUser] = createStore({});
+  // Your discord ID, store setter, keep alive interval for websocket
+  useLanyardWS(DISCORD_ID, setUser, 1000);
+  return (
+    <>
+      <Show when={user.loading}>loading!</Show>
+      <Show when={!user.loading}>{user()?.discord_user?.username}</Show>
+    </>
+  );
+};
 ```
 
 REST API example component
@@ -37,14 +35,12 @@ import { createResource } from "solid-js";
 const DISCORD_ID = "566444484850745351";
 
 const Discord = () => {
-    const [user] = createResource(DISCORD_ID, useLanyardREST);
-    return(<>
-        <Show when={user.loading}>
-            loading!
-        </Show>
-        <Show when={!user.loading}>
-            {user()?.discord_user?.username}
-        </Show>
-    </>);
-}
+  const [user] = createResource(DISCORD_ID, useLanyardREST);
+  return (
+    <>
+      <Show when={user.loading}>loading!</Show>
+      <Show when={!user.loading}>{user()?.discord_user?.username}</Show>
+    </>
+  );
+};
 ```

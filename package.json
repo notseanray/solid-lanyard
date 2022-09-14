@@ -1,4 +1,34 @@
 {
+  "name": "solidjs-lanyard",
+  "version": "0.1.0",
+  "description": "Use LanyardAPI with SolidJS!",
+  "main": "build/index.js",
+  "types": "build/types.d.ts",
+  "repository": "https://github.com/notseanray/solidjs-lanyard",
+  "author": "Sean Ray <seanray410@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/notseanray/solidjs-lanyard/issues"
+  },
+  "files": [
+    "build",
+    "package.json"
+  ],
+  "keywords": [
+    "typescript",
+    "solidjs",
+    "lanyard",
+    "discord",
+    "presence"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "ncc build src/index.ts -m -e svelte/store",
+    "check": "tsc",
+    "check:watch": "tsc -w",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint .",
+    "format": "prettier --write --plugin-search-dir=. ."
+  },
   "devDependencies": {
     "@types/websocket": "^1.0.5",
     "typescript": "^4.8.3"
