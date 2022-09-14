@@ -5,16 +5,17 @@ import { w3cwebsocket } from "websocket";
 const REST_URL = "https://api.lanyard.rest/v1/users/";
 const WS_URL = "wss://api.lanyard.rest/socket";
 
-export const useLanyardREST = async (id: string) =>
-  await fetch(REST_URL + id)
+export async function useLanyardREST(id: string) {
+  return await fetch(REST_URL + id)
     .then((response) => response.json())
     .then((response) => response as LanyardResponse);
+}
 
-export const useLanyardWS = async (
+export async function useLanyardWS(
   id: string,
   setResponse: SetStoreFunction<Presence>,
   heartbeat_interval: number
-) => {
+) {
   const send = (ws: w3cwebsocket, message: object) => {
     ws.send(JSON.stringify(message));
   };
@@ -41,4 +42,6 @@ export const useLanyardWS = async (
     const d = JSON.parse(m.data) as Response;
     update(d.d);
   };
-};
+}
+
+export * from "./types";

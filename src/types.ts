@@ -5,7 +5,7 @@ export enum LanyardOpcode {
   HEARTBEAT,
 }
 
-interface HeartBeat {
+export interface HeartBeat {
   heartbeat_interval: number;
 }
 
@@ -14,7 +14,7 @@ export interface Response {
   d: HeartBeat | Presence;
 }
 
-interface Spotify {
+export interface Spotify {
   track_id: string;
   timestamps: {
     start: number;
@@ -26,7 +26,7 @@ interface Spotify {
   album: string;
 }
 
-interface Discord {
+export interface Discord {
   username: string;
   public_flags: number;
   id: string;
@@ -34,7 +34,7 @@ interface Discord {
   avatar: string;
 }
 
-interface Activity {
+export interface Activity {
   type: number;
   timestamps: {
     start: number;
