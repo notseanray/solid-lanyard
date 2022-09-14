@@ -21,7 +21,6 @@
     "presence"
   ],
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "build": "ncc build src/index.ts -m -e svelte/store",
     "check": "tsc",
